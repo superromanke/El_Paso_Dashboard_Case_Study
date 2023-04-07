@@ -729,7 +729,7 @@ def dashboard():
                     color='dark'
                 else:
                     color=get_color(speed)
-                print(color,filtered_df.shape[0])
+                #print(color,filtered_df.shape[0])
                 folium.Polygon(
                     locations=coor,
                     color=color,
