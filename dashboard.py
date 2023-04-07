@@ -14,7 +14,8 @@ import bar_chart_race as bcr
 from streamlit.components.v1 import html
 
 
-
+import math
+from shapely.geometry import Point, Polygon
 
 
 
@@ -498,7 +499,7 @@ def dashboard():
         option3[0]="All"
 
         zip_code = st.sidebar.selectbox('Zip Code', option3)
-        option4=['Table','Density Heat Map','Trajectory Visualization']
+        option4=['Table','Density Heat Map','Trajectory Visualization','Case Study Seg','Case Study Markers']
         disply_type = st.sidebar.selectbox('Display Mode', option4)
         # if zip_code == -1:
         #     zip_code = 'All'
@@ -513,7 +514,7 @@ def dashboard():
         # st.sidebar.write('- Jeffrey Weidner') 
 
         # CTECH logo and UTEP logo are side-by-side
-        st.sidebar.image(['utep_new_logo.png','CTECH.jpeg'], width=150)
+        #st.sidebar.image(['utep_new_logo.png','CTECH.jpeg'], width=150)
         #CTECH logo is below to UTEP logo
         #st.sidebar.image('utep_new_logo.png', width=200)
         #st.sidebar.image('CTECH.jpeg', width=200)
@@ -592,6 +593,355 @@ def dashboard():
         # selected_journeyid = st.selectbox('Select a journeyid', ['All'] + list(journeyids))
         # if selected_journeyid != 'All':
         #     journey_df
+        elif disply_type=='Case Study Seg':
+            rect_coords1 = [
+                    [31.78562926106642, -106.50631983809866],
+                    [31.785596073042868, -106.50643892168597],
+                    [31.785564544142872, -106.50653653112003],
+                    [31.78548323322459, -106.50670832328571],
+                    [31.78546166090856, -106.50674736691536],
+                    [31.785408559752064, -106.50684985638046],
+                    [31.785333886542254, -106.50679031471252],
+                    [31.785459171820005, -106.50652384203471],
+                    [31.785511442961376, -106.5063949978551],
+                    [31.7855404823514, -106.5062895797998],
+                    [31.78561183725359, -106.50631300549159]
+                ]
+            rect_coords2 = [
+
+                    [31.785408559752064, -106.50684985638046],#
+                    [31.785333886542254, -106.50679031471252],#
+                    [31.7851250215014, -106.50700411970097],
+                    [31.78510451260033, -106.50702286983706],
+                    [31.785013314512224, -106.50710333709117],
+                    [31.78482635799443, -106.50719453362406],
+                    [31.784837757922766, -106.5073393720696],
+                    [31.785020154727036, -106.50723744657097],
+                    [31.785391787231305, -106.50687534224791],
+                    [31.785373547686962, -106.50690484704195],
+                    [31.785408559752064, -106.50684985638046]
+                ]
+            rect_coords3 = [
+                    [31.78482635799443, -106.50719453362406],#
+                    [31.784837757922766, -106.5073393720696],#
+                    [31.78471233859948, -106.50739672614282],
+                    [31.784535015098413, -106.50749288376554],
+                    [31.784307541048797, -106.50756472492485],
+                    [31.78406809207342, -106.50754835709174],
+                    [31.783838029010578, -106.50751177063607],#
+                    [31.783935892644582, -106.50740962964056],#
+                    [31.7840840508256, -106.5074331173958],
+                    [31.784255055447133, -106.5074440721445],
+
+                    [31.78454181635694, -106.5073535762567],
+                    [31.78482635799443, -106.50719453362406],
+                ]
+            rect_coords4 = [
+
+                    [31.783838029010578, -106.50751177063607],#
+                    [31.783935892644582, -106.50740962964056],#
+                    [31.78307672055443, -106.50725884506853],
+                    [31.783029158882602, -106.5073573038798]
+                ]
+            rect_coords5 = [
+
+
+                    [31.78307672055443, -106.50725884506853],
+                    [31.783029158882602, -106.5073573038798],
+
+                    [31.78246716450477, -106.50729234367408],
+                    [31.782476232898652, -106.50717768485566],
+                ]
+            rect_coords6 = [
+
+
+                    [31.782514787524125, -106.50719359898679],
+                    [31.782428645865707, -106.5071804452879],
+
+                    [31.78251725108058, -106.50551057224423],
+                    [31.782583344322678, -106.50551111202957],
+
+                ]
+            rect7=[
+                [31.78551296180724,-106.5061947990217],
+                [31.78547846695954,-106.5063115826307],
+                [31.78433286132817,-106.5060059423108],
+                [31.78435785837267,-106.5058685513861]
+                
+                
+                ]
+            rect8=[
+                [31.78263905582947,-106.5055261884843],
+                [31.78265432920957,-106.5053717625435],
+                [31.78433850586656,-106.5058663604294],
+                [31.78431590602613,-106.5060011636788]
+                
+                
+                ]
+            rect9=[
+                [31.78495452203802,-106.505992131438],
+                [31.78497511058762,-106.5058659475662],
+                [31.78555604663832,-106.5060328678583],
+                [31.78551522919348,-106.5061641085935]
+                
+                
+                ]
+            rect10=[
+                [31.78264701431556,-106.5053227033138],
+                [31.78266119749574,-106.5052007627926],
+                [31.78482870248905,-106.5057947347421],
+                [31.78479623203576,-106.5059539293017],
+                [31.78427650353702,-106.5058025142571],
+                [31.78374452022924,-106.5056285130224],
+                [31.78264701431556,-106.5053227033138]
+                
+                
+                ]
+            zip_code = st.sidebar.selectbox('Period', ['Weekday','Weekend'])
+        
+            if zip_code=='Weekday':
+                df=pd.read_csv('weekday_new.csv')
+            elif zip_code=='Weekend':
+                df=pd.read_csv('weekend.csv')
+
+   
+            points=df[['latitude','longitude','speed','heading']].values.tolist()
+            def is_within_polygon(row, polygon):
+                point = Point(row['latitude'], row['longitude'])
+                return polygon.contains(point)
+            def get_color(speed):
+                if speed <= 10:
+                    return 'lightgreen'
+                elif speed <= 20:
+                    return 'green'
+                elif speed <= 40:
+                    return 'blue'
+                elif speed <= 60:
+                    return 'red'
+                else:
+                    return 'red'
+            def draw_polygon_folium(m,coor): 
+                polygon = Polygon(coor)
+                filtered_df = df[df.apply(is_within_polygon, args=(polygon,), axis=1)]
+                
+                speed=filtered_df['speed'].mean()
+                if len(filtered_df)==0:
+                    color='dark'
+                else:
+                    color=get_color(speed)
+                print(color,filtered_df.shape[0])
+                folium.Polygon(
+                    locations=coor,
+                    color=color,
+                    fill_color=color,
+                    fill_opacity=0.5).add_to(m)
+            m = folium.Map(location=[31.784015821496766, -106.50658067115639], zoom_start=17)  # (lat,lon)
+
+            draw_polygon_folium(m,rect_coords1)
+            draw_polygon_folium(m,rect_coords2)
+            draw_polygon_folium(m,rect_coords3)
+            draw_polygon_folium(m,rect_coords4)
+            draw_polygon_folium(m,rect_coords5)
+            draw_polygon_folium(m,rect_coords6)
+            draw_polygon_folium(m,rect7)
+            draw_polygon_folium(m,rect8)
+            draw_polygon_folium(m,rect9)
+            draw_polygon_folium(m,rect10)
+            folium_static(m)
+
+
+
+        elif disply_type=='Case Study Markers':
+            zip_code = st.sidebar.selectbox('Period', ['Weekday','Weekend'])
+            if zip_code=='Weekday':
+                df=pd.read_csv('weekday_new.csv')
+            elif zip_code=='Weekend':
+                df=pd.read_csv('weekend.csv')
+            points=df[['latitude','longitude','speed','heading']].values.tolist()
+            m = folium.Map(location=[31.784015821496766, -106.50658067115639], zoom_start=17)  # (lat,lon)
+            for i in range(len(points)):
+                #if points[i][2]!=0:
+                arc=6371.393*1000
+                location=points[i][:2]
+                azimuth=points[i][3]
+                if points[i][2]>60:
+                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
+                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
+                    end_location = [end_lat, end_lon]
+
+                    #########################################
+                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1=[arrow1_lat,arrow1_lon]
+                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2=[arrow2_lat,arrow2_lon]
+                    #################################
+
+
+                    folium.PolyLine(
+                        locations=[location, end_location],
+                        color='red',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow1],
+                        color='red',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow2],
+                        color='red',
+                    ).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='red',icon="car",prefix='fa')).add_to(m)
+                elif points[i][2]>40:
+                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
+                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
+                    end_location = [end_lat, end_lon]
+
+                    #########################################
+                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1=[arrow1_lat,arrow1_lon]
+                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2=[arrow2_lat,arrow2_lon]
+                    #################################
+
+
+                    folium.PolyLine(
+                        locations=[location, end_location],
+                        color='lightred',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow1],
+                        color='lightred',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow2],
+                        color='lightred',
+                    ).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='lightred',icon="car",prefix='fa')).add_to(m)
+                elif points[i][2]>20:
+                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
+                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
+                    end_location = [end_lat, end_lon]
+
+                    #########################################
+                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1=[arrow1_lat,arrow1_lon]
+                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2=[arrow2_lat,arrow2_lon]
+                    #################################
+
+
+                    folium.PolyLine(
+                        locations=[location, end_location],
+                        color='blue',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow1],
+                        color='blue',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow2],
+                        color='blue',
+                    ).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='blue',icon="car",prefix='fa')).add_to(m)
+                elif points[i][2]>10:
+                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
+                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
+                    end_location = [end_lat, end_lon]
+
+                    #########################################
+                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1=[arrow1_lat,arrow1_lon]
+                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2=[arrow2_lat,arrow2_lon]
+                    #################################
+
+
+                    folium.PolyLine(
+                        locations=[location, end_location],
+                        color='green',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow1],
+                        color='green',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow2],
+                        color='green',
+                    ).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='green',icon="car",prefix='fa')).add_to(m)
+                elif points[i][2]>0:
+                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
+                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
+                    end_location = [end_lat, end_lon]
+
+                    #########################################
+                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1=[arrow1_lat,arrow1_lon]
+                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2=[arrow2_lat,arrow2_lon]
+                    #################################
+
+
+                    folium.PolyLine(
+                        locations=[location, end_location],
+                        color='lightgreen',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow1],
+                        color='lightgreen',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow2],
+                        color='lightgreen',
+                    ).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='lightgreen',icon="car",prefix='fa')).add_to(m)
+                else:
+                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
+                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
+                    end_location = [end_lat, end_lon]
+
+                    #########################################
+                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1=[arrow1_lat,arrow1_lon]
+                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2=[arrow2_lat,arrow2_lon]
+                    #################################
+
+
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='orange',icon="car",prefix='fa')).add_to(m)
+            folium_static(m)
+        st.sidebar.image(['utep_new_logo.png','CTECH.jpeg'], width=150)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     #elif data_module == 'Health Data':
     elif selected=='Health Data 🏥':
