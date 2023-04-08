@@ -701,8 +701,12 @@ def dashboard():
         
             if zip_code=='Weekday':
                 df=pd.read_csv('weekday_new.csv')
+                st.write('#### Traffic Flow Average Speed Around Mesa Street COVID-19 Test Site During Weekday')
+                st.write('The colors represent the average speed of traffic in that road segment')
             elif zip_code=='Weekend':
                 df=pd.read_csv('weekend.csv')
+                st.write('#### Traffic Flow Average Speed Around Mesa Street COVID-19 Test Site During Weekend')
+                st.write('The colors represent the average speed of traffic in that road segment')
 
    
             points=df[['latitude','longitude','speed','heading']].values.tolist()
@@ -711,11 +715,11 @@ def dashboard():
                 return polygon.contains(point)
             def get_color(speed):
                 if speed <= 10:
-                    return 'lightgreen'
-                elif speed <= 20:
                     return 'green'
-                elif speed <= 40:
+                elif speed <= 20:
                     return 'blue'
+                elif speed <= 40:
+                    return 'orange'
                 elif speed <= 60:
                     return 'red'
                 else:
@@ -755,8 +759,12 @@ def dashboard():
             zip_code = st.sidebar.selectbox('Period', ['Weekday','Weekend'])
             if zip_code=='Weekday':
                 df=pd.read_csv('weekday_new.csv')
+                st.write('#### Traffic Distribution Around Mesa Street COVID-19 Test Site During Weekday')
+                st.write('Each icon represents one way point')
             elif zip_code=='Weekend':
                 df=pd.read_csv('weekend.csv')
+                st.write('#### Traffic Distribution Around Mesa Street COVID-19 Test Site During Weekend')
+                st.write('Each icon represents one way point')
             points=df[['latitude','longitude','speed','heading']].values.tolist()
             m = folium.Map(location=[31.784015821496766, -106.50658067115639], zoom_start=17)  # (lat,lon)
             for i in range(len(points)):
@@ -809,17 +817,17 @@ def dashboard():
 
                     folium.PolyLine(
                         locations=[location, end_location],
-                        color='lightred',
+                        color='orange',
                     ).add_to(m)
                     folium.PolyLine(
                         locations=[end_location, arrow1],
-                        color='lightred',
+                        color='orange',
                     ).add_to(m)
                     folium.PolyLine(
                         locations=[end_location, arrow2],
-                        color='lightred',
+                        color='orange',
                     ).add_to(m)
-                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='lightred',icon="car",prefix='fa')).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='orange',icon="car",prefix='fa')).add_to(m)
                 elif points[i][2]>20:
                     end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
                     end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
@@ -919,7 +927,7 @@ def dashboard():
                     #################################
 
 
-                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='orange',icon="car",prefix='fa')).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='pink',icon="car",prefix='fa')).add_to(m)
             folium_static(m)
         st.sidebar.image(['utep_new_logo.png','CTECH.jpeg'], width=150)
 
