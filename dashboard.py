@@ -595,73 +595,156 @@ def dashboard():
         #     journey_df
         elif disply_type=='Case Study Seg':
             rect_coords1 = [
-                    [31.78562926106642, -106.50631983809866],
-                    [31.785596073042868, -106.50643892168597],
-                    [31.785564544142872, -106.50653653112003],
-                    [31.78548323322459, -106.50670832328571],
-                    [31.78546166090856, -106.50674736691536],
-                    [31.785408559752064, -106.50684985638046],
-                    [31.785333886542254, -106.50679031471252],
-                    [31.785459171820005, -106.50652384203471],
-                    [31.785511442961376, -106.5063949978551],
-                    [31.7855404823514, -106.5062895797998],
-                    [31.78561183725359, -106.50631300549159]
-                ]
+                [31.785590146507584, -106.50633886050541],
+                [31.785519017419706, -106.50654373655537],
+                [31.785440116256606, -106.50669609987328],
+                [31.78538198556584, -106.50679848838172],
+                [31.785329474676455, -106.50674925819219],#guaiwan
+                [31.78538746395495, -106.50666521511947],
+                [31.785445681884624, -106.5065255199026],
+                [31.785532506613087, -106.50631724253319]
+            ]
+
+
+
             rect_coords2 = [
-
-                    [31.785408559752064, -106.50684985638046],#
-                    [31.785333886542254, -106.50679031471252],#
-                    [31.7851250215014, -106.50700411970097],
-                    [31.78510451260033, -106.50702286983706],
-                    [31.785013314512224, -106.50710333709117],
-                    [31.78482635799443, -106.50719453362406],
-                    [31.784837757922766, -106.5073393720696],
-                    [31.785020154727036, -106.50723744657097],
-                    [31.785391787231305, -106.50687534224791],
-                    [31.785373547686962, -106.50690484704195],
-                    [31.785408559752064, -106.50684985638046]
-                ]
+                [31.785590146507584, -106.50633886050541],
+                [31.785519017419706, -106.50654373655537],
+                [31.785440116256606, -106.50669609987328],
+                [31.78538198556584, -106.50679848838172],
+                [31.785421383331773, -106.50682925511762],#guaiwan
+                [31.785484632495702, -106.50672986557348],
+                [31.785553314877305, -106.5065685667387],
+                [31.78564496044706, -106.50635111526474]
+            ]    
             rect_coords3 = [
-                    [31.78482635799443, -106.50719453362406],#
-                    [31.784837757922766, -106.5073393720696],#
-                    [31.78471233859948, -106.50739672614282],
-                    [31.784535015098413, -106.50749288376554],
-                    [31.784307541048797, -106.50756472492485],
-                    [31.78406809207342, -106.50754835709174],
-                    [31.783838029010578, -106.50751177063607],#
-                    [31.783935892644582, -106.50740962964056],#
-                    [31.7840840508256, -106.5074331173958],
-                    [31.784255055447133, -106.5074440721445],
 
-                    [31.78454181635694, -106.5073535762567],
-                    [31.78482635799443, -106.50719453362406],
-                ]
+                [31.78538198556584, -106.50679848838172],#zhongdian
+                [31.785421383331773, -106.50682925511762],#guaiwan
+                [31.785307954482583, -106.50696584450057],
+                [31.785207827589158, -106.50707186540912],
+                [31.785136550971554, -106.5071184222367],
+                [31.78504152962508, -106.50719615327684],#guaiwan
+                [31.785007218945555, -106.5071529013864],#zhongdian
+                [31.785107551766867, -106.50708451475963],
+                [31.785276441008914, -106.50692586030482]
+
+            ]       
             rect_coords4 = [
 
-                    [31.783838029010578, -106.50751177063607],#
-                    [31.783935892644582, -106.50740962964056],#
-                    [31.78307672055443, -106.50725884506853],
-                    [31.783029158882602, -106.5073573038798]
-                ]
+
+
+                [31.785007218945555, -106.5071529013864],#zhongdian
+                [31.785107551766867, -106.50708451475963],
+                [31.785276441008914, -106.50692586030482],
+                [31.78538198556584, -106.50679848838172],#zhongdian
+                [31.785329474676455, -106.50674925819219],#guaiwan
+                [31.78522384960199, -106.50688295659515],
+                [31.785139326896953, -106.50696380607235],
+                [31.785068002010462, -106.50701978644916],
+                [31.78497025007966, -106.50709129515258]
+
+            ] 
             rect_coords5 = [
 
 
-                    [31.78307672055443, -106.50725884506853],
-                    [31.783029158882602, -106.5073573038798],
 
-                    [31.78246716450477, -106.50729234367408],
-                    [31.782476232898652, -106.50717768485566],
-                ]
+                [31.785007218945555, -106.5071529013864],#zhongdian
+                [31.78497025007966, -106.50709129515258],
+                [31.784478884590328, -106.50736861192183],
+                [31.78449474787003, -106.50744947959869],#zhongdian
+                [31.78473513213546, -106.50732456865131],
+
+            ]
             rect_coords6 = [
 
+                [31.78449474787003, -106.50744947959869],#zhongdian
+                [31.78473513213546, -106.50732456865131],
+                [31.785007218945555, -106.5071529013864],#houzhongdian
+                [31.78504152962508, -106.50719615327684],#guaiwan
+                [31.78475636943989, -106.50737143352933],
+                [31.784508012172132, -106.50751851435861]#guaiwan
+            ]
+            rect_coords7 = [
 
-                    [31.782514787524125, -106.50719359898679],
-                    [31.782428645865707, -106.5071804452879],
+                [31.78449474787003, -106.50744947959869],#zhongdian
+                [31.784508012172132, -106.50751851435861],#guaiwan
+                [31.784412564527806, -106.5075528450727],
+                [31.784132378686994, -106.50756892287365],
+                [31.783838380692824, -106.50753362782437],#guaiwan
+                [31.783864828729865, -106.50746216020296],#zhongdian
+                [31.78396813714825, -106.5074720869729],
+                [31.784113845919304, -106.50748482634403],
+                [31.78426182940279, -106.50749380045936]
+                
+                
+                
+            ]
+            rect_coords8 = [
 
-                    [31.78251725108058, -106.50551057224423],
-                    [31.782583344322678, -106.50551111202957],
+                
 
-                ]
+                [31.783864828729865, -106.50746216020296],#zhongdian
+                [31.78396813714825, -106.5074720869729],
+                [31.784113845919304, -106.50748482634403],
+                [31.78426182940279, -106.50749380045936],
+                [31.78449474787003, -106.50744947959869],#zhongdian
+                [31.784475558050868, -106.50738127175774],
+                [31.784383462001696, -106.50740966995552],
+                [31.784127084207377, -106.50741318878721],
+                [31.783885986051704, -106.5073937548308],#guaiwan
+                
+                
+                
+            ]
+            rect_coords9 = [
+
+                
+
+                [31.783864828729865, -106.50746216020296],#zhongdian
+                [31.783885986051704, -106.5073937548308],#guaiwan
+                [31.78307870921669, -106.50723821109742],
+                [31.78251834735184, -106.50718021078447],
+                [31.78251061454291, -106.50723538532286],#zhongdian
+                [31.78307347043351, -106.50729989847396],
+                
+                
+                
+            ]
+            rect_coords10 = [
+
+                [31.78251061454291, -106.50723538532286],#zhongdian
+                [31.78307347043351, -106.50729989847396],
+                [31.783864828729865, -106.50746216020296],#zhongdian
+                [31.783838380692824, -106.50753362782437],#guaiwan
+                [31.78307287746508, -106.50738295958516],
+                [31.78247078237203, -106.50730602080209]
+                
+                
+                
+            ]
+            rect_coords11 = [
+
+                
+
+
+                [31.78251834735184, -106.50718021078447],
+                [31.782475857123334, -106.50717115756102],#zhongdian
+                [31.782544709657742, -106.50549245877288],#zhongdian
+                [31.782586291851107, -106.50549790627572]
+
+                
+                
+                
+            ]
+            rect_coords12 = [
+
+                [31.782475857123334, -106.50717115756102],#zhongdian
+                [31.782544709657742, -106.50549245877288],#zhongdian
+                [31.782482278976044, -106.50548090756683],
+                [31.782392955114727, -106.50717398999748]                
+            ]
+
             rect7=[
                 [31.78551296180724,-106.5061947990217],
                 [31.78547846695954,-106.5063115826307],
@@ -697,15 +780,15 @@ def dashboard():
                 
                 
                 ]
-            zip_code = st.sidebar.selectbox('Period', ['Weekday','Weekend'])
+            zip_code = st.sidebar.selectbox('Period', ['Mon-Sat','Sunday'])
         
-            if zip_code=='Weekday':
-                df=pd.read_csv('weekday_new.csv')
-                st.write('#### Traffic Flow Average Speed Around Mesa Street COVID-19 Test Site During Weekday')
+            if zip_code=='Mon-Sat':
+                df=pd.read_csv('mon_sat.csv')
+                st.write('#### Traffic Flow Average Speed Around Mesa Street COVID-19 Test Site During Monday to Saturday')
                 st.write('The colors represent the average speed of traffic in that road segment')
-            elif zip_code=='Weekend':
-                df=pd.read_csv('weekend.csv')
-                st.write('#### Traffic Flow Average Speed Around Mesa Street COVID-19 Test Site During Weekend')
+            elif zip_code=='Sunday':
+                df=pd.read_csv('sunday.csv')
+                st.write('#### Traffic Flow Average Speed Around Mesa Street COVID-19 Test Site During Sunday')
                 st.write('The colors represent the average speed of traffic in that road segment')
 
    
@@ -714,16 +797,24 @@ def dashboard():
                 point = Point(row['latitude'], row['longitude'])
                 return polygon.contains(point)
             def get_color(speed):
-                if speed <= 10:
+                if speed <= 13.5:
+                    return 'brown'
+                elif speed <= 22.5:
+                    return 'red'
+                elif speed <= 45:
+                    return 'yellow'
+                elif speed > 45:
                     return 'green'
-                elif speed <= 20:
-                    return 'blue'
-                elif speed <= 40:
-                    return 'orange'
-                elif speed <= 60:
+            def get_color_small(speed):
+                if speed <= 9:
+                    return 'brown'
+                elif speed <= 15:
                     return 'red'
-                else:
-                    return 'red'
+                elif speed <= 30:
+                    return 'yellow'
+                elif speed > 30:
+                    return 'green'
+
             def draw_polygon_folium(m,coor): 
                 polygon = Polygon(coor)
                 filtered_df = df[df.apply(is_within_polygon, args=(polygon,), axis=1)]
@@ -739,14 +830,35 @@ def dashboard():
                     color=color,
                     fill_color=color,
                     fill_opacity=0.5).add_to(m)
+            def draw_polygon_folium_small(m,coor): 
+                polygon = Polygon(coor)
+                filtered_df = df[df.apply(is_within_polygon, args=(polygon,), axis=1)]
+                
+                speed=filtered_df['speed'].mean()
+                if len(filtered_df)==0:
+                    color='dark'
+                else:
+                    color=get_color_small(speed)
+                #print(color,filtered_df.shape[0])
+                folium.Polygon(
+                    locations=coor,
+                    color=color,
+                    fill_color=color,
+                    fill_opacity=0.5).add_to(m)
             m = folium.Map(location=[31.784015821496766, -106.50658067115639], zoom_start=17)  # (lat,lon)
 
-            draw_polygon_folium(m,rect_coords1)
-            draw_polygon_folium(m,rect_coords2)
-            draw_polygon_folium(m,rect_coords3)
-            draw_polygon_folium(m,rect_coords4)
-            draw_polygon_folium(m,rect_coords5)
-            draw_polygon_folium(m,rect_coords6)
+            draw_polygon_folium_small(m,rect_coords1)
+            draw_polygon_folium_small(m,rect_coords2)
+            draw_polygon_folium_small(m,rect_coords3)
+            draw_polygon_folium_small(m,rect_coords4)
+            draw_polygon_folium_small(m,rect_coords5)
+            draw_polygon_folium_small(m,rect_coords6)
+            draw_polygon_folium_small(m,rect_coords7)
+            draw_polygon_folium_small(m,rect_coords8)
+            draw_polygon_folium_small(m,rect_coords9)
+            draw_polygon_folium_small(m,rect_coords10)
+            draw_polygon_folium_small(m,rect_coords11)
+            draw_polygon_folium_small(m,rect_coords12)
             draw_polygon_folium(m,rect7)
             draw_polygon_folium(m,rect8)
             draw_polygon_folium(m,rect9)
@@ -756,14 +868,14 @@ def dashboard():
 
 
         elif disply_type=='Case Study Markers':
-            zip_code = st.sidebar.selectbox('Period', ['Weekday','Weekend'])
-            if zip_code=='Weekday':
-                df=pd.read_csv('weekday_new.csv')
-                st.write('#### Traffic Distribution Around Mesa Street COVID-19 Test Site During Weekday')
+            zip_code = st.sidebar.selectbox('Period', ['Mon-Sat','Sunday'])
+            if zip_code=='Mon-Sat':
+                df=pd.read_csv('mon_sat.csv')
+                st.write('#### Traffic Distribution Around Mesa Street COVID-19 Test Site During Monday to Saturday')
                 st.write('Each icon represents one way point')
-            elif zip_code=='Weekend':
-                df=pd.read_csv('weekend.csv')
-                st.write('#### Traffic Distribution Around Mesa Street COVID-19 Test Site During Weekend')
+            elif zip_code=='Sunday':
+                df=pd.read_csv('sunday.csv')
+                st.write('#### Traffic Distribution Around Mesa Street COVID-19 Test Site During Sunday')
                 st.write('Each icon represents one way point')
             points=df[['latitude','longitude','speed','heading']].values.tolist()
             m = folium.Map(location=[31.784015821496766, -106.50658067115639], zoom_start=17)  # (lat,lon)
