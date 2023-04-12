@@ -45,7 +45,7 @@ def welcome():
         st.write('')
         st.write("<ul style='list-style-type: disc;'><li style='margin-left: 40px; font-size: 20px;'>Demographic data: Population and median income by zip code from 2016 to 2020.</li></ul>", unsafe_allow_html=True)
         st.write("<ul style='list-style-type: disc;'><li style='margin-left: 40px; font-size: 20px;'>Crash data: Traffic crashes at intersections in the City of El Paso, Texas from 1/1/2016 to 10/18/2021, downloaded from the Texas Department of Transportation’s (TxDOT’s) Crash Report Information System (CRIS) database. </li></ul>", unsafe_allow_html=True)
-        st.write("<ul style='list-style-type: disc;'><li style='margin-left: 40px; font-size: 20px;'>Traffic data: Selected vehicle trajectory data in the City of El Paso, Texas from mm/dd/yyyy to mm/dd/yyyy acquired from Wejo.</li></ul>", unsafe_allow_html=True)
+        st.write("<ul style='list-style-type: disc;'><li style='margin-left: 40px; font-size: 20px;'>Traffic data: Selected vehicle trajectory data in the City of El Paso, Texas from 10/25/2021 to 11/21/2021 acquired from Wejo.</li></ul>", unsafe_allow_html=True)
         st.write("<ul style='list-style-type: disc;'><li style='margin-left: 40px; font-size: 20px;'>Health data: Live data from the City of El Paso, Texas COVID-19 website. </li></ul>", unsafe_allow_html=True)
         
 
@@ -499,7 +499,7 @@ def dashboard():
         option3[0]="All"
 
         zip_code = st.sidebar.selectbox('Zip Code', option3)
-        option4=['Table','Density Heat Map','Trajectory Visualization','Case Study Seg','Case Study Markers']
+        option4=['Table','Density Heat Map','Trajectory Visualization','Speed Map','Markers With Speed']
         disply_type = st.sidebar.selectbox('Display Mode', option4)
         # if zip_code == -1:
         #     zip_code = 'All'
@@ -593,7 +593,7 @@ def dashboard():
         # selected_journeyid = st.selectbox('Select a journeyid', ['All'] + list(journeyids))
         # if selected_journeyid != 'All':
         #     journey_df
-        elif disply_type=='Case Study Seg':
+        elif disply_type=='Speed Map':
             rect_coords1 = [
                 [31.785590146507584, -106.50633886050541],
                 [31.785519017419706, -106.50654373655537],
@@ -867,7 +867,7 @@ def dashboard():
 
 
 
-        elif disply_type=='Case Study Markers':
+        elif disply_type=='Markers With Speed':
             zip_code = st.sidebar.selectbox('Period', ['Mon-Sat','Sunday'])
             if zip_code=='Mon-Sat':
                 df=pd.read_csv('mon_sat.csv')
