@@ -884,91 +884,8 @@ def dashboard():
                 arc=6371.393*1000
                 location=points[i][:2]
                 azimuth=points[i][3]
-                if points[i][2]>60:
-                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
-                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
-                    end_location = [end_lat, end_lon]
 
-                    #########################################
-                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
-                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
-                    arrow1=[arrow1_lat,arrow1_lon]
-                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
-                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
-                    arrow2=[arrow2_lat,arrow2_lon]
-                    #################################
-
-
-                    folium.PolyLine(
-                        locations=[location, end_location],
-                        color='red',
-                    ).add_to(m)
-                    folium.PolyLine(
-                        locations=[end_location, arrow1],
-                        color='red',
-                    ).add_to(m)
-                    folium.PolyLine(
-                        locations=[end_location, arrow2],
-                        color='red',
-                    ).add_to(m)
-                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='red',icon="car",prefix='fa')).add_to(m)
-                elif points[i][2]>40:
-                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
-                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
-                    end_location = [end_lat, end_lon]
-
-                    #########################################
-                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
-                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
-                    arrow1=[arrow1_lat,arrow1_lon]
-                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
-                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
-                    arrow2=[arrow2_lat,arrow2_lon]
-                    #################################
-
-
-                    folium.PolyLine(
-                        locations=[location, end_location],
-                        color='orange',
-                    ).add_to(m)
-                    folium.PolyLine(
-                        locations=[end_location, arrow1],
-                        color='orange',
-                    ).add_to(m)
-                    folium.PolyLine(
-                        locations=[end_location, arrow2],
-                        color='orange',
-                    ).add_to(m)
-                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='orange',icon="car",prefix='fa')).add_to(m)
-                elif points[i][2]>20:
-                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
-                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
-                    end_location = [end_lat, end_lon]
-
-                    #########################################
-                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
-                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
-                    arrow1=[arrow1_lat,arrow1_lon]
-                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
-                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
-                    arrow2=[arrow2_lat,arrow2_lon]
-                    #################################
-
-
-                    folium.PolyLine(
-                        locations=[location, end_location],
-                        color='blue',
-                    ).add_to(m)
-                    folium.PolyLine(
-                        locations=[end_location, arrow1],
-                        color='blue',
-                    ).add_to(m)
-                    folium.PolyLine(
-                        locations=[end_location, arrow2],
-                        color='blue',
-                    ).add_to(m)
-                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='blue',icon="car",prefix='fa')).add_to(m)
-                elif points[i][2]>10:
+                if points[i][2]>50:
                     end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
                     end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
                     end_location = [end_lat, end_lon]
@@ -996,6 +913,62 @@ def dashboard():
                         color='green',
                     ).add_to(m)
                     folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='green',icon="car",prefix='fa')).add_to(m)
+                elif points[i][2]>35:
+                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
+                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
+                    end_location = [end_lat, end_lon]
+
+                    #########################################
+                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1=[arrow1_lat,arrow1_lon]
+                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2=[arrow2_lat,arrow2_lon]
+                    #################################
+
+
+                    folium.PolyLine(
+                        locations=[location, end_location],
+                        color='blue',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow1],
+                        color='blue',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow2],
+                        color='blue',
+                    ).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='blue',icon="car",prefix='fa')).add_to(m)
+                elif points[i][2]>19:
+                    end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
+                    end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
+                    end_location = [end_lat, end_lon]
+
+                    #########################################
+                    arrow1_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1_lat=end_lat+10 * math.cos(math.radians(azimuth-180+10))/(arc*2*math.pi/360)
+                    arrow1=[arrow1_lat,arrow1_lon]
+                    arrow2_lon=end_lon  + 10 * math.sin(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2_lat=end_lat+ 10 * math.cos(math.radians(azimuth-180-10))/(arc*2*math.pi/360)
+                    arrow2=[arrow2_lat,arrow2_lon]
+                    #################################
+
+
+                    folium.PolyLine(
+                        locations=[location, end_location],
+                        color='orange',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow1],
+                        color='orange',
+                    ).add_to(m)
+                    folium.PolyLine(
+                        locations=[end_location, arrow2],
+                        color='orange',
+                    ).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='orange',icon="car",prefix='fa')).add_to(m)
                 elif points[i][2]>0:
                     end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
                     end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
@@ -1013,17 +986,17 @@ def dashboard():
 
                     folium.PolyLine(
                         locations=[location, end_location],
-                        color='lightgreen',
+                        color='pink',
                     ).add_to(m)
                     folium.PolyLine(
                         locations=[end_location, arrow1],
-                        color='lightgreen',
+                        color='pink',
                     ).add_to(m)
                     folium.PolyLine(
                         locations=[end_location, arrow2],
-                        color='lightgreen',
+                        color='pink',
                     ).add_to(m)
-                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='lightgreen',icon="car",prefix='fa')).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='pink',icon="car",prefix='fa')).add_to(m)
                 else:
                     end_lon = location[1] + 20 * math.sin(math.radians(azimuth))/(arc*math.cos(location[0])*2*math.pi/360)
                     end_lat = location[0] + 20 * math.cos(math.radians(azimuth))/(arc*2*math.pi/360)
@@ -1039,7 +1012,7 @@ def dashboard():
                     #################################
 
 
-                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='pink',icon="car",prefix='fa')).add_to(m)
+                    folium.Marker(location=points[i][:2], tooltip=points[i][2], icon=folium.Icon(color='red',icon="car",prefix='fa')).add_to(m)
             folium_static(m)
         st.sidebar.image(['utep_new_logo.png','CTECH.jpeg'], width=150)
 
