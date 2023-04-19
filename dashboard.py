@@ -784,11 +784,11 @@ def dashboard():
         
             if zip_code=='Mon-Sat':
                 df=pd.read_csv('mon_sat.csv')
-                st.write('#### Traffic Flow Average Speed Around Mesa Street COVID-19 Test Site During Monday to Saturday')
+                st.write('#### Average Speed Around Mesa Street COVID-19 Test Site During Monday to Saturday')
                 st.write('The colors represent the average speed of traffic in that road segment')
             elif zip_code=='Sunday':
                 df=pd.read_csv('sunday.csv')
-                st.write('#### Traffic Flow Average Speed Around Mesa Street COVID-19 Test Site During Sunday')
+                st.write('#### Average Speed Around Mesa Street COVID-19 Test Site During Sunday')
                 st.write('The colors represent the average speed of traffic in that road segment')
 
    
