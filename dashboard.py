@@ -797,22 +797,22 @@ def dashboard():
                 point = Point(row['latitude'], row['longitude'])
                 return polygon.contains(point)
             def get_color(speed):
-                if speed <= 13.5:
+                if speed <= 21:
                     return 'brown'
-                elif speed <= 22.5:
+                elif speed <= 36:
                     return 'red'
-                elif speed <= 45:
+                elif speed <= 72:
                     return 'yellow'
-                elif speed > 45:
+                elif speed > 72:
                     return 'green'
             def get_color_small(speed):
-                if speed <= 9:
+                if speed <= 14:
                     return 'brown'
-                elif speed <= 15:
+                elif speed <= 24:
                     return 'red'
-                elif speed <= 30:
+                elif speed <= 48:
                     return 'yellow'
-                elif speed > 30:
+                elif speed > 48:
                     return 'green'
 
             def draw_polygon_folium(m,coor): 
